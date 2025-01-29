@@ -1,0 +1,249 @@
+/* Banner styling */
+/* Breadcrumb Styling */
+.breadcrumb {
+    font-size: 1rem;
+    margin: 20px 0;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #45a0d7;
+    font-weight: bold;
+}
+
+.breadcrumb-link:hover {
+    color: #3296c2;
+    background: transparent;
+}
+
+.breadcrumb span {
+    margin-right: 5px;
+}
+
+.glassware-page-banner {
+    position: relative;
+    background-image: url('../assets/banner/glassware-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glassware-page-banner-text {
+    font-size: 3rem;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    animation: slideIn 3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Glassware Page Styling */
+.glassware-page {
+    padding: 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.glassware-page-details {
+    margin-top: 20px;
+}
+
+.glassware-page-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.glassware-page-info th, .glassware-page-info td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.glassware-page-info th {
+    background-color: #f4f4f4;
+}
+
+.glassware-page-quantity-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.glassware-page-quantity-button {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: #ddd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.glassware-page-quantity-button:hover {
+    background-color: #3296c2;
+}
+
+.glassware-page-quantity-input {
+    width: 60px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.glassware-page-add-to-cart-button {
+    padding: 5px 15px;
+    background-color: #45a0d7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.glassware-page-add-to-cart-button:hover {
+    background-color: #3296c2;
+}
+
+/* Product Images Section */
+.glassware-page-images-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.glassware-page-product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.glassware-page-product-image:hover {
+    transform: scale(1.1);
+}
+
+/* Quantity display between + and - buttons */
+.glassware-page-quantity-display {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+/* Responsive styles */
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .glassware-page-banner-text {
+        font-size: 2rem;
+    }
+
+    .glassware-page-info table {
+        font-size: 0.9rem;
+    }
+
+    .glassware-page-quantity-controls {
+        flex-direction: row; /* Ensures the buttons are in a row */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .glassware-page-quantity-button {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+
+    .glassware-page-product-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+    }
+
+    .glassware-page-images-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .breadcrumb {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .glassware-page-banner-text {
+        font-size: 2.5rem;
+    }
+
+    .glassware-page-info table {
+        font-size: 1rem;
+    }
+
+    .glassware-page-quantity-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .glassware-page-quantity-button {
+        font-size: 1.1rem;
+        padding: 5px 10px;
+    }
+
+    .glassware-page-quantity-input {
+        width: 60px;
+    }
+
+    .glassware-page-product-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Desktop screens */
+@media (min-width: 1025px) {
+    .glassware-page-banner-text {
+        font-size: 3rem;
+    }
+
+    .glassware-page-info table {
+        font-size: 1rem;
+    }
+
+    .glassware-page-quantity-controls {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .glassware-page-quantity-button {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+
+    .glassware-page-quantity-input {
+        width: 60px;
+    }
+
+    .glassware-page-product-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .glassware-page-images-section {
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,102 @@
+/* ProductComponent.css */
+
+.product-container {
+    margin: 0 auto;
+    text-align: center; /* Center the entire container */
+    cursor: pointer;
+    background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+}
+
+.product-container h2 {
+    /* padding: 15px; */
+
+}
+
+.product-header {
+    font-size: 2.2rem;
+    /* margin-bottom: 1rem; */
+    margin-top: -20px;
+    padding-top: 100px;
+}
+.product-card-container a:hover{
+    background-color: transparent;
+}
+
+.product-grid {
+    display: grid;
+    max-width: 1800px;
+    margin: 0 auto;
+    grid-template-columns: 1fr; /* Default for smaller screens */
+    gap: 1rem;
+    padding: 1rem;
+    justify-items: center; /* Center the grid items horizontally */
+}
+
+@media (min-width: 640px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items in a row */
+        width: 100%;
+    }
+
+    .product-card {
+        width: 100%; /* Full width on smaller screens */
+        height: 250px; /* Adjusted for better mobile view */
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 items in a row for larger screens */
+    }
+
+    .product-card {
+        width: 250px; /* Fixed width for larger screens */
+        height: 250px; /* Fixed height for larger screens */
+    }
+}
+
+.product-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px; /* Fixed width for all screen sizes */
+    height: 250px; /* Fixed height for all screen sizes */
+    margin: 0 auto; /* Center align */
+    border: 2px solid #4299e1;
+    border-bottom-right-radius: 80px;
+
+    border-top-left-radius: 80px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    background: transparent; /* No background color change on hover */
+    color: #4299e1;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%; /* Make image fill the box */
+    object-fit: cover;
+    
+}
+
+.product-title {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem;
+    color: black;
+    margin-top: 10px; /* Space between product card and name */
+}
+.product-title:hover{
+    color: white;
+}
+
+.product-card-link {
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+}

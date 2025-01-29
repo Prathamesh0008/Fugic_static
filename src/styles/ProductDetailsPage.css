@@ -1,0 +1,406 @@
+/* Container for the product details page */
+.product-details-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.product-details-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+}
+
+.product-details-left {
+  flex: 0.7;
+}
+
+.product-name {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.product-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.gallery-image.active {
+  border: 2px solid #5db0e1; /* Highlight with your logo color */
+  opacity: 0.7;
+}
+
+
+.product-details-right {
+  flex: 0.3;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.chemical-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.chemical-info-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.chemical-info-table td:first-child {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+/* Pricing Table */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table th, .pricing-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.pricing-table th {
+  background-color: #f5f5f5;
+}
+
+.pricing-table input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.add-to-cart-button {
+  background-color: #5db0e1;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+  background-color: #4a95c3;
+}
+
+.pricing-table td:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Packaging Sizes Row */
+.packaging-sizes-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.packaging-size-item {
+  background-color: #f1f1f1;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.packaging-size-item:hover {
+  background-color: #e0e0e0;
+}
+
+/* Safety Information and Hazard Symbols Table */
+.safety-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.safety-info-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.safety-info-table td:first-child {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.safety-info-table td {
+  font-size: 14px;
+}
+
+/* Specifications Table */
+.specifications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.specifications-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.specifications-table td:first-child {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.specifications-table td {
+  font-size: 14px;
+}
+
+/* Download Buttons */
+.download-buttons {
+  margin-top: 20px;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  background-color: #5db0e1;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #4a9dc8;
+}
+
+.pdf-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Toggle Button for Physical Properties */
+.physical-properties-toggle {
+  margin-top: 20px;
+}
+
+.physical-properties-toggle .toggle-button {
+  background-color: #5db0e1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.physical-properties-toggle .toggle-button:hover {
+  background-color: #4a99c8;
+  transform: scale(1.05);
+}
+
+/* Physical Properties Section */
+.physical-properties-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.physical-properties-section h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.physical-properties-section .details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.physical-properties-section .details-table th,
+.physical-properties-section .details-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.physical-properties-section .details-table th {
+  background-color: #5db0e1;
+  color: white;
+  font-weight: bold;
+}
+
+.physical-properties-section .details-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.physical-properties-section .details-table tr:hover {
+  background-color: #e8f4fb;
+}
+
+.physical-properties-section .details-table td {
+  font-size: 14px;
+  color: #555;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.details-table th,
+.details-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.details-table th {
+  background-color: #5db0e1;
+  color: white;
+  font-weight: bold;
+}
+
+.details-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.details-table tr:hover {
+  background-color: #e8f4fb;
+}
+
+.details-table td {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .product-details-content {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .product-details-left,
+  .product-details-right {
+      flex: 1 1 100%;
+  }
+
+  .product-name {
+      font-size: 1.8rem;
+  }
+
+  .main-image img {
+      max-height: 300px;
+  }
+
+  .gallery-image img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .pricing-table td,
+  .pricing-table th {
+      font-size: 12px;
+  }
+
+  .packaging-size-item {
+      font-size: 12px;
+      padding: 8px 12px;
+  }
+
+  .physical-properties-section h3 {
+      font-size: 18px;
+  }
+
+  .download-button {
+      font-size: 12px;
+      padding: 8px 12px;
+  }
+
+  .pdf-icon {
+      font-size: 16px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .product-name {
+      font-size: 1.6rem;
+  }
+
+  .main-image img {
+      max-height: 250px;
+  }
+
+  .gallery-image img {
+      width: 50px;
+      height: 50px;
+  }
+
+  .pricing-table td,
+  .pricing-table th {
+      font-size: 10px;
+  }
+
+  .packaging-size-item {
+      font-size: 10px;
+      padding: 6px 10px;
+  }
+
+  .download-button {
+      font-size: 10px;
+      padding: 6px 10px;
+  }
+
+  .pdf-icon {
+      font-size: 14px;
+  }
+}

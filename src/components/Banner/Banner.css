@@ -1,0 +1,63 @@
+/* Banner Section */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Set a fixed height for the banner */
+    overflow: hidden; /* Hide the overflow */
+    
+
+  }
+  
+  .banner-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .banner-item {
+    min-width: 100%; /* Each slide takes full width */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .banner-item p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+  
+  /* Arrows */
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .arrow-left {
+    left: 10px;
+  }
+  
+  .arrow-right {
+    right: 10px;
+  }
+  
+  .arrow-left:hover,
+  .arrow-right:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

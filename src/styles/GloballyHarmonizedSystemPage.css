@@ -1,0 +1,148 @@
+/* Container for the GHS page */
+.ghs-page-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ghs-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.ghs-left {
+    flex: 0.7;
+}
+
+.ghs-right {
+    flex: 0.3;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.introduction p,
+.introduction ul {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.introduction ul {
+    padding-left: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.image-box {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    border: 1px solid #531212;
+}
+
+.ghs-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.details-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+}
+
+.details-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .ghs-content {
+        flex-direction: column; /* Stack the sections vertically on smaller screens */
+        gap: 10px;
+    }
+
+    .ghs-left, .ghs-right {
+        flex: 1; /* Allow both sections to take up equal width */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.5rem; /* Reduce title size on smaller screens */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Adjust sub-headings */
+    }
+
+    h3 {
+        font-size: 1.2rem; /* Adjust sub-headings */
+    }
+
+    .introduction p,
+    .introduction ul {
+        font-size: 14px; /* Make the text smaller for readability */
+    }
+
+    .ghs-image {
+        object-fit: cover; /* Adjust image behavior */
+    }
+
+    .image-box {
+        height: 150px; /* Reduce the height of the image box */
+    }
+
+    .details-table td {
+        font-size: 12px; /* Smaller text in the table */
+        padding: 8px; /* Reduced padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.2rem; /* Smaller title on mobile */
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .ghs-content {
+        padding: 10px; /* Add padding for smaller screens */
+    }
+
+    .image-box {
+        width: 100%; /* Make the image box take up full width */
+        height: 120px; /* Further reduce the height of the image box */
+    }
+
+    .details-table td {
+        font-size: 10px; /* Smaller table text */
+        padding: 6px; /* Reduced padding for mobile screens */
+    }
+}

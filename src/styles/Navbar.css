@@ -1,0 +1,351 @@
+/* First Row - Rolling Text */
+.rolling-text {
+  background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+  padding: 10px 0;
+  color: black;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically centers the content */
+}
+
+.rolling-text p {
+  display: inline-block;
+  white-space: nowrap;
+  color: black;
+  font-weight: 700;
+  animation: marquee 25s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(60%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Second Row - Main Navbar */
+.navbar-main {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  position: relative;
+}
+
+.logo {
+  height: 65px;
+}
+
+.search-container {
+  width: 40%;
+  display: flex;
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #5db0e1;
+  cursor: pointer;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icons .icon {
+  margin-left: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.get-quote {
+  margin-left: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(to right,
+#76c6ed, #5cafe0, #638ea8);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 2px solid #4a9bb2;
+}
+
+/* Hover effect for quote button */
+.get-quote:hover {
+  background: white;
+  color: #4a9bb2;
+  border: 2px solid #4a9bb2;
+}
+
+/* Third Row - Main Navigation */
+.navbar-secondary {
+  background-color: black;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-secondary ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-secondary ul li {
+  margin: 0 20px;
+}
+
+.navbar-secondary ul li a {
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4a9bb2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure dropdown is on top of other elements */
+  border-radius: 5px;
+  color: white;
+  min-width: 160px;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown-icon {
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+/* Hamburger Menu */
+.hamburger-icon {
+  display: none;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hamburger-icon {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    z-index: 20;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-secondary {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-secondary.active {
+    display: flex;
+  }
+
+  .navbar-secondary ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar-icons {
+    margin-top: 10px;
+  }
+
+  .navbar-secondary ul li {
+    margin: 10px 0;
+  }
+
+  .navbar-secondary ul li a {
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Style for login dropdown */
+.login-dropdown {
+  position: absolute;
+  top: 110px; /* Adjusted top value to ensure dropdown is visible */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure dropdown is on top */
+  width: 320px; /* Ensure the dropdown has enough width */
+  border-radius: 5px;
+}
+
+.login-dropdown form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Password Input Wrapper */
+/* Password Input Wrapper */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Adjust width as needed */
+}
+.login-dropdown form{
+  width: 90%;
+}
+
+/* Styling for the Password Input */
+.password-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Add padding for the eye icon */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.password-input:focus {
+  border-color: #5db0e1;
+  box-shadow: 0 0 5px rgba(93, 176, 225, 0.5);
+}
+
+/* Eye Icon */
+.password-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #5db0e1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.password-eye:hover {
+  color: #2a7db2; /* Darker shade on hover */
+  transform: translateY(-50%) scale(1.2);
+}
+.extra-links {
+  text-decoration: none;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.inloop{
+  text-decoration: none;
+  color: #007BFF;
+}
+.inloop:hover{
+  text-decoration: underline;
+  background: transparent;
+  color: #007BFF;
+}
+
+.extra-links a {
+  font-size: 14px;
+  /* color: #007BFF; */
+}
+.login-btn{
+  background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+  color: black;
+  font-weight: 750;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .login-dropdown {
+    top: 260px; /* Adjusted top value to ensure dropdown is visible */
+    right: 200px;
+    /* left: 0;
+    margin: 0 10px; */
+  }
+}
+@media(max-width:500px){
+  .login-dropdown{
+    top: 270px;
+    left: 0;
+    border-radius: 10px;
+  }
+}

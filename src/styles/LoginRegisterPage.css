@@ -1,0 +1,228 @@
+/* src/styles/LoginRegisterPage.css */
+.login-register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1800px;
+    margin: 0 auto;
+    /* background: linear-gradient(0.25turn, black, #ebf8e1, black); */
+    /* height: 75vh; */
+    box-sizing: border-box;
+  }
+  
+  .form-container {
+    width: 40%;
+    min-width: 350px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  .form-container input {
+    width: 100%;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-color: #45a0d7;
+    box-shadow: 0 0 5px rgba(93, 176, 225, 0.5);
+  }
+  
+  .form-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+    color: black;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #3a8fb2;
+  }
+  
+  .password-wrapperr {
+    position: relative;
+    width: 100%;
+  }
+  
+  .password-wrapperr input {
+    width: 100%;
+  }
+  
+  .password-eyee {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #3a8fb2;
+  }
+  
+  .toggle-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    
+  }
+  
+  .toggle-link span {
+    color: #333;
+    
+  }
+  
+  .toggle-link button {
+    background: none;
+
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    background-color:#45a0d7;
+    border: 2px solid #45a0d7;
+    border-radius: 5px;
+    /* border: 2px solid #ccc; */
+  }
+  
+  .toggle-link button:hover {
+    text-decoration: underline;
+    background-color: white;
+    border: 2px solid #45a0d7;
+    color: #45a0d7;
+  }
+  
+  .why-register-container {
+    width: 40%; /* Same width as the form */
+    min-width: 350px;
+    padding: 30px;
+    background: linear-gradient(to right,
+    #76c6ed, #5cafe0, #83c9f5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .why-register-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .why-register-container ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .why-register-container ul li {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .why-register-container ul li::before {
+    content: "✔";
+    color: #45a0d7;
+    margin-right: 10px;
+  }
+  
+  .quote {
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #777;
+  }
+  
+  /* Responsive Design for Different Screen Sizes */
+  @media (max-width: 1024px) {
+    .login-register-container {
+      padding: 30px;
+      gap: 30px;
+    }
+  
+    .form-container, .why-register-container {
+      width: 45%; /* Slightly adjust the width for tablets */
+    }
+  
+    .password-wrapperr input {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login-register-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+  
+    .form-container, .why-register-container {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  
+    .password-wrapperr {
+      width: 100%;
+    }
+  
+    .why-register-container {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .login-register-container {
+      padding: 15px;
+      gap: 20px;
+  
+    }
+  
+    .form-container, .why-register-container {
+      width: 100%; /* Full width for mobile devices */
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    .quote {
+      font-size: 0.9rem;
+    }
+  
+    .why-register-container h3 {
+      font-size: 1.2rem;
+    }
+  
+    .why-register-container ul li {
+      font-size: 0.9rem;
+    }
+  }
+  

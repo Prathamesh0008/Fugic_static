@@ -1,0 +1,234 @@
+/* Banner Styling */
+.chemical-page-banner {
+    position: relative;
+    background-image: url('../assets/banner/banner-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure the banner is full-width */
+}
+
+/* Banner Text Styling */
+.chemical-page-banner-text {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    animation: slideIn 3s ease-in-out;
+}
+
+/* Keyframe for Banner Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Rest of the styles */
+.chemical-page {
+    padding: 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* Breadcrumb Section */
+.breadcrumb {
+    font-size: 1rem;
+    margin: 20px 0;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #45a0d7;
+    font-weight: bold;
+}
+
+.breadcrumb-link:hover {
+    color: #3296c2;
+    background: transparent;
+}
+
+.breadcrumb span {
+    margin-right: 5px;
+}
+
+/* Chemical Page Info Table */
+.chemical-page-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.chemical-page-info th, .chemical-page-info td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.chemical-page-info th {
+    background-color: #f4f4f4;
+}
+
+/* Product Images Section */
+.chemical-page-images-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.chemical-page-product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.chemical-page-product-image:hover {
+    transform: scale(1.1);
+}
+
+/* Quantity Controls */
+.chemical-page-quantity-controls {
+    display: flex;
+    justify-content: space-between; /* Change from column to row */
+    align-items: center;
+    width: 100%;
+}
+
+.chemical-page-quantity-button {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: #ddd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chemical-page-quantity-button:hover {
+    background-color: #3296c2;
+}
+
+.chemical-page-quantity-input {
+    width: 60px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+/* Add to Cart Button */
+.chemical-page-add-to-cart-button {
+    padding: 5px 15px;
+    background-color: #45a0d7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.chemical-page-add-to-cart-button:hover {
+    background-color: #3296c2;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .chemical-page-banner-text {
+        font-size: 2rem;
+    }
+
+    .chemical-page-info table {
+        font-size: 0.9rem;
+    }
+
+    .chemical-page-quantity-controls {
+        flex-direction: row; /* Ensures the buttons are in a row */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .chemical-page-quantity-button {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+
+    .chemical-page-product-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+    }
+
+    .chemical-page-images-section {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .chemical-page-banner-text {
+        font-size: 2.5rem;
+    }
+
+    .chemical-page-info table {
+        font-size: 1rem;
+    }
+
+    .chemical-page-quantity-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .chemical-page-quantity-button {
+        font-size: 1.1rem;
+        padding: 5px 10px;
+    }
+
+    .chemical-page-quantity-input {
+        width: 60px;
+    }
+
+    .chemical-page-product-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .chemical-page-banner-text {
+        font-size: 3rem;
+    }
+
+    .chemical-page-info table {
+        font-size: 1rem;
+    }
+
+    .chemical-page-quantity-controls {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .chemical-page-quantity-button {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+
+    .chemical-page-quantity-input {
+        width: 60px;
+    }
+
+    .chemical-page-product-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .chemical-page-images-section {
+        justify-content: space-around;
+    }
+}

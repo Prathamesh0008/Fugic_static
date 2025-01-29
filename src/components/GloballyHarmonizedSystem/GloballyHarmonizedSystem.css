@@ -1,0 +1,124 @@
+/* Container styles */
+.ghs-container {
+    width: 60%; /* Adjust width for a more balanced layout */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 12px; /* Add rounded corners */
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+  }
+  
+  /* Header styles */
+  .ghs-header {
+    text-align: center;
+    font-size: 2.5rem; /* Increased font size */
+    margin-bottom: 80px;
+    color: #333;
+    font-weight: 600; /* Make the header bolder */
+    letter-spacing: 1px; /* Slight letter-spacing for a modern look */
+  }
+  
+  /* Images container styles */
+  .ghs-images-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center align the images */
+    gap: 15px; /* Increased gap between images */
+    padding: 20px 0;
+  }
+  
+  /* Individual image box styles */
+  .ghs-image-box {
+    flex: 0 0 calc(20% - 15px); /* Adjust width for 5 items in the first row */
+    display: flex;
+    flex-direction: column; /* Align images and names vertically */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  
+  /* Image styles */
+  .ghs-image {
+    width: 60%; /* Larger images for a more prominent look */
+    height: auto;
+    object-fit: contain; /* Preserve aspect ratio */
+    border-radius: 8px; /* Rounded corners for the images */
+    transition: transform 0.3s ease-in-out;
+    
+  }
+  .ghs-image:hover{
+    background: white;
+    background-color: white;
+  }
+  
+  /* Name styles */
+  .ghs-image-name {
+    margin-top: 12px; /* Increased space between image and name */
+    font-size: 1rem; /* Slightly larger font size */
+    text-align: center;
+    color: #444; /* Slightly darker color for better readability */
+    font-weight: 500; /* Semi-bold name */
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* For tablets (screen width less than or equal to 768px) */
+  @media screen and (max-width: 768px) {
+    .ghs-header {
+      font-size: 1.8rem;
+    }
+  
+    .ghs-images-container {
+      flex-direction: row; /* Keep the images in a row for tablets */
+      justify-content: center; /* Center align the images */
+      gap: 20px; /* Increase gap between images */
+    }
+  
+    .ghs-image-box {
+      flex: 0 0 calc(30% - 20px); /* Adjust width for tablets (3 images per row) */
+    }
+  
+    .ghs-image {
+      width: 80%; /* Smaller images on tablets */
+    }
+  
+    .ghs-image-name {
+      font-size: 0.9rem; /* Smaller text size */
+    }
+  }
+  
+  /* For smaller screens (mobile, width less than or equal to 576px) */
+  @media screen and (max-width: 576px) {
+    .ghs-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px; /* Reduce padding */
+    }
+  
+    .ghs-header {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+  
+    .ghs-images-container {
+      flex-direction: row; /* Keep the images in a row for mobile */
+      gap: 10px; /* Reduce gap between images */
+      align-items: center; /* Center align the images */
+    }
+  
+    .ghs-image-box {
+      flex: 0 0 calc(45% - 15px); /* 2 images per row on mobile */
+      height: auto;
+    }
+  
+    .ghs-image {
+      width: 70%; /* Make images smaller on mobile */
+    }
+  
+    .ghs-image-name {
+      font-size: 0.8rem; /* Smaller name size */
+    }
+  }
+  

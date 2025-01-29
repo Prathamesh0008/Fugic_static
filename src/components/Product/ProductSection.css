@@ -1,0 +1,104 @@
+/* src/components/ProductSection.css */
+.productt-section {
+    /* background: linear-gradient(to right, #76c1ea, #5cafe0, #45a0d7); */
+    background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+   
+}
+
+.product-section {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.product-group {
+    margin-bottom: 40px;
+}
+
+.product-group h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Ensure the items wrap to the next line */
+}
+
+.product-box {
+    width: 30%; /* Default to 3 items per row */
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding and border don't affect overall size */
+    margin-bottom: 20px; /* Add margin to space out the boxes */
+}
+
+.product-box:hover {
+    outline: 1px solid black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add stronger box-shadow on hover */
+}
+
+.product-image-container {
+    position: relative;
+}
+
+.product-box img {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the box without distorting */
+    border-radius: 15px;
+    
+}
+.More_products{
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.More_products:hover{
+    background-color: #5db0e1;
+    color: white;
+}
+
+
+
+
+.product-text-overlay h3 {
+    margin: 0;
+}
+
+/* For screens with width between 768px and 1024px (tablets and medium screens) */
+@media (max-width: 1024px) {
+    .product-box {
+        width: 45%; /* 2 items per row */
+    }
+}
+
+/* For screens with width less than 768px (small tablets and large mobile screens) */
+@media (max-width: 768px) {
+    .product-box {
+        width: 45%; /* 2 items per row */
+    }
+}
+
+/* For screens with width less than 480px (small mobile screens) */
+@media (max-width: 480px) {
+   
+    .product-box {
+        width: 48%;
+       
+        height: 20%; /* 2 items per row */
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,284 @@
+/* General Page Styles */
+.chemical-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; Center content */
+    justify-content: center;
+}
+
+/* Banner Section */
+.filter-page-banner {
+    position: relative;
+    background-image: url('../assets/banner/FilterPaperBanner.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px; /* Center the banner */
+}
+
+.filter-page-banner-text {
+    font-size: 3rem;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    animation: slideIn 3s ease-in-out;
+    text-align: center;
+    flex: 1;
+}
+
+/* Breadcrumb Section */
+.breadcrumb {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    justify-content: flex-start; /* Align breadcrumb to the left */
+    width: 100%;
+}
+
+.breadcrumb-link {
+    color: #5db0e1;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.breadcrumb-link:hover {
+    text-decoration: underline;
+}
+
+/* Table Styling */
+.filter-paper-table,
+.additional-data-table {
+    width: 80%; /* Center the table with 80% width */
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 1000px; /* Add a max-width */
+}
+
+.filter-paper-table th,
+.filter-paper-table td,
+.additional-data-table th,
+.additional-data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.filter-paper-table th,
+.additional-data-table th {
+    background-color: #5db0e1;
+    color: white;
+    font-size: 1rem;
+}
+
+.filter-paper-table tbody tr:nth-child(odd),
+.additional-data-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.filter-paper-table tbody tr:nth-child(even),
+.additional-data-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-button {
+    background-color: #ddd;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 5px;
+}
+
+.quantity-button:hover {
+    background-color: #4a9ac9;
+}
+
+.quantity-display {
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+    background-color: #5db0e1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-to-cart-button:hover {
+    background-color: #4a9ac9;
+}
+
+/* Chemical Images Section */
+.filterPape-images-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px; /* Center the images */
+}
+
+.filterPape-images-section-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.filterPape-images-section-image:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .filter-paper-table th,
+    .filter-paper-table td,
+    .additional-data-table th,
+    .additional-data-table td {
+        font-size: 0.85rem;
+    }
+
+    .add-to-cart-button {
+        font-size: 0.9rem;
+        max-width: 150px;
+    }
+
+    .breadcrumb {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .filter-page-banner {
+        height: 200px;
+    }
+
+    .filter-paper-table th,
+    .filter-paper-table td,
+    .additional-data-table th,
+    .additional-data-table td {
+        font-size: 0.8rem;
+    }
+
+    .quantity-button {
+        font-size: 1rem;
+    }
+
+    .add-to-cart-button {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-page-banner {
+        height: 180px;
+    }
+
+    .filter-paper-table th,
+    .filter-paper-table td,
+    .additional-data-table th,
+    .additional-data-table td {
+        font-size: 0.75rem;
+        padding: 6px;
+    }
+
+    .quantity-button {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+
+    .add-to-cart-button {
+        font-size: 0.75rem;
+        padding: 4px 6px;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-page-banner {
+        height: 150px;
+    }
+    .filter-paper-table, .additional-data-table {
+        margin: 10px;
+    }
+
+    .filter-paper-table th,
+    .filter-paper-table td,
+    .additional-data-table th,
+    .additional-data-table td {
+        font-size: 0.7rem;
+        padding: 1px;
+    }
+    .filter-paper-table{
+        margin: 5px;
+    }
+
+    .additional-data-table {
+        width: 100%;
+        margin-left: 6%;
+        margin: 10px;
+    }
+
+    .quantity-button {
+        font-size: 0.9rem;
+        padding: 3px 6px;
+    }
+
+    .add-to-cart-button {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .breadcrumb {
+        font-size: 0.7rem;
+    }
+    .filterPape-images-section{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        /* width: 20%; */
+
+    }
+    .filterPape-images-section-image{
+        width: 50px;
+        height: 50px;
+    }
+}
