@@ -23,7 +23,7 @@ const GloballyHarmonizedSystemPage = () => {
   ];
   const breadcrumbPaths = [
     { name: "Home", link: "/" },
-    { name: "Safety", link: "/safety" },
+    // { name: "Safety", link: "" },
     { name: "Globally Harmonized System", link: "/ghs" }
   ];
 

@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "./LatestNews.css";
 import productData from "../../assets/productData";
 
-
-
 const LatestNews = () => {
   const settings = {
     infinite: true,
@@ -38,31 +36,31 @@ const LatestNews = () => {
   };
 
   return (
-    <div className="latest-news-containerr">
-    <div className="latest-news-container">
-      <h2 className="latest-news-header">Our Products</h2>
-      <div className="latest-news-slider">
-        <Slider {...settings}>
-        {productData.map((product) => (
-  <div className="latest-news-box" key={product.id}>
-    <div className="latest-news-image-container">
-      <img src={product.image} alt={product.name} className="latest-news-image" />
-    </div>
-    <div className="latest-news-content">
-      <Link to={`/product/${product.id}`} className="product-link">
-        <h3 className="latest-news-name">{product.name}</h3>
-        <p className="latest-news-description">{product.description}</p>
-      </Link>
-    </div>
+    <div className="Certifications-container">
+    <h2 className="Certifications-header">Our Products</h2>
+    <div className="Certifications-slider">
+      <Slider {...settings}>
+      {productData.map((product) => (
+<div className="Certifications-box" key={product.id}>
+  <div className="Certifications-image-container">
+    <img src={product.image} alt={product.name} className="Certifications-image" />
   </div>
-  
+  <div className="Certifications-content">
+    <Link to={`/product/${product.id}`} className="Certifications-product-link">
+      <h3 className="latest-news-name">{product.name}</h3>
+      {/* <p className="Certifications-description">{product.description}</p> */}
+    </Link>
+  </div>
+</div>
 ))}
 
-        </Slider>
-      </div>
+      </Slider>
     </div>
-    </div>
-  );
+    <div className="view-all-container">
+          <Link to="/products" className="view-all-button">View All</Link>
+        </div>
+  </div>
+);
 };
 
 export default LatestNews;

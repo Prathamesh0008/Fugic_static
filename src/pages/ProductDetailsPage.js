@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // Import useParams
 import { FiFileText } from "react-icons/fi"; // Icon for PDF
 import "../styles/ProductDetailsPage.css";
-import { Link } from "react-router-dom"; // Import Link for routing
+// import { Link } from "react-router-dom"; // Import Link for routing
 
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import productData from "../assets/productData"; // Assuming productData is an array
-import LatestNews from "../components/LatestNews/LatestNews";
+// import LatestNews from "../components/LatestNews/LatestNews";
 
 const ProductDetailsPage = () => {
   const { id } = useParams(); // Get product id from URL
@@ -26,7 +26,7 @@ const ProductDetailsPage = () => {
   // Update breadcrumb path when product is fetched
   const breadcrumbPaths = [
     { name: "Home", link: "/" },
-    { name: "Our Products", link: "/safety" },
+    { name: "Our Products", link: "/products" },
     product && { name: product.name, link: `/product/${product.id}` } // Add product name to the breadcrumb
   ].filter(Boolean); // Remove any null or undefined values from the array
 
@@ -210,7 +210,7 @@ const ProductDetailsPage = () => {
           </table>
         </div>
       </div>
-      <LatestNews />
+      {/* <LatestNews /> */}
     </div>
   );
 };

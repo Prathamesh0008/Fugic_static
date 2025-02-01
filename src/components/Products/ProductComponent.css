@@ -24,7 +24,7 @@
 
 .product-grid {
     display: grid;
-    max-width: 1800px;
+    max-width: 1200px;
     margin: 0 auto;
     grid-template-columns: 1fr; /* Default for smaller screens */
     gap: 1rem;
@@ -58,7 +58,7 @@
 .product-card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 300px; /* Fixed width for all screen sizes */
+    width: 250px; /* Fixed width for all screen sizes */
     height: 250px; /* Fixed height for all screen sizes */
     margin: 0 auto; /* Center align */
     border: 2px solid #4299e1;

@@ -1,0 +1,197 @@
+/* Product Page Container */
+.product-page-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Default Table Layout (For Large Screens) */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  table-layout: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Table Headings */
+.product-table th,
+.product-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.product-table th {
+  background-color: #5db0e1;
+  color: white;
+  font-weight: bold;
+}
+
+/* Alternating Row Colors */
+.product-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.product-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Ensure long text wraps properly */
+.product-table td {
+  max-width: 250px; /* Prevent text from overflowing */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Convert Table to Column Format on Small Screens */
+@media (max-width: 768px) {
+  .product-table {
+    display: block;
+    width: 100%;
+  }
+
+  .product-table thead {
+    display: none; /* Hide table headers */
+  }
+
+  .product-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .product-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Fix label and value sticking issue */
+  .product-table tbody tr td {
+    display: block; /* Ensure label and value are stacked */
+    border: none;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+
+  .product-table tbody tr td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block; /* Force label to a new line */
+    margin-bottom: 5px; /* Add space between label and value */
+    color: #5db0e1;
+  }
+
+  /* Ensure Chemical Name specifically has proper spacing */
+  .product-table tbody tr td[data-label="Chemical Name"] {
+    max-width: 250px;
+  }
+}
+
+/* Unit Checkbox Styles */
+.product-table td .unit-checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-table td .unit-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-table td .unit-checkbox input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.product-table td .unit-checkbox label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.product-table td .unit-checkbox input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: #5db0e1;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #5db0e1;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: #4a9ecf;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Add to Cart Button Styles */
+.add-to-cart-btn {
+  padding: 8px 16px;
+  background-color: #5db0e1; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Hover effect */
+.add-to-cart-btn:hover {
+  background-color: #4a9ecf; /* Slightly darker shade */
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Disabled state for button */
+.add-to-cart-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Optional: Add spacing around the button in the table */
+.product-table td[data-label="ADD TO CART"] {
+  text-align: center;
+}
+
