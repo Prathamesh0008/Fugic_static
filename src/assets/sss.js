@@ -12,7 +12,7 @@ const productsData = {
           price: '₹1,000.00',
           MSDS: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC01494',
@@ -23,7 +23,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1285/ARSENIC_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC01537',
@@ -34,7 +34,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1287/BARIUM_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC01680',
@@ -45,7 +45,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1288/BERYLLIUM_AAS_STANDARD_SOLUTION_1',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC01723',
@@ -56,7 +56,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1289/BISMUTH_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC01781',
@@ -67,7 +67,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1290/BORON_AAS_STANDARD_SOLUTION_1000',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02014',
@@ -78,7 +78,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1292/CADMIUM_AAS_STANDARD_SOLUTION_10',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02050',
@@ -89,7 +89,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1294/CALCIUM_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02209',
@@ -100,7 +100,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1296/CESIUM_AAS_STANDARD_SOLUTION_1000',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02358',
@@ -111,7 +111,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1298/CHROMIUM_AAS_STANDARD_SOLUTION_1',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02417',
@@ -122,7 +122,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1300/COBALT_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC02483',
@@ -133,7 +133,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1302/COPPER_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03596',
@@ -144,7 +144,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1304/IRON_AAS_STANDARD_SOLUTION_1000_',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03659',
@@ -155,7 +155,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1306/LANTHANUM_AAS_STANDARD_SOLUTION',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03678',
@@ -166,7 +166,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1307/LEAD_AAS_STANDARD_SOLUTION_1000_',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03751',
@@ -177,7 +177,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1308/LITHIUM_AAS_STANDARD_SOLUTION_100',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03804',
@@ -188,7 +188,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1310/MAGNESIUM_AAS_STANDARD_SOLUTION_',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03873',
@@ -199,7 +199,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1312/MANGANESE_AAS_STANDARD_SOLUTION_',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           articleNo: 'FC03927',
@@ -210,7 +210,7 @@ const productsData = {
           unit: '125ml 500ml',
           MSDS: 'https://www.alphachemika.co/chemical/1313/MERCURY_AAS_STANDARD_SOLUTION_10',
           category: 'AAS Standard Solutions',
-          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1'
+          COA: 'https://www.alphachemika.co/chemical/1283/ANTIMONY_AAS_STANDARD_SOLUTION_1',
         },
         {
           "articleNo": "FC04207",
@@ -543,7 +543,7 @@ const productsData = {
         price: '₹4,450 ₹8,570',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL0071',
@@ -555,7 +555,7 @@ const productsData = {
         price: '₹980 ₹4,430',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL0638',
@@ -567,7 +567,7 @@ const productsData = {
         price: '₹870',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL0639',
@@ -579,7 +579,7 @@ const productsData = {
         price: '₹990',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL0976',
@@ -591,7 +591,7 @@ const productsData = {
         price: '₹2,100 ₹8,400',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL1006',
@@ -603,7 +603,7 @@ const productsData = {
         price: '₹4,130 ₹12,380',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL1259',
@@ -615,7 +615,7 @@ const productsData = {
         price: '₹1,940',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL1341',
@@ -627,7 +627,7 @@ const productsData = {
         price: '₹1,820',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL2065',
@@ -639,7 +639,7 @@ const productsData = {
         price: '₹1,560 ₹6,230',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL3043',
@@ -651,7 +651,7 @@ const productsData = {
         price: '₹1,650',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL3493',
@@ -663,7 +663,7 @@ const productsData = {
         price: '₹1,030 ₹4,610 ₹19,620',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL3546',
@@ -675,7 +675,7 @@ const productsData = {
         price: '₹1,530',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL3552',
@@ -687,7 +687,7 @@ const productsData = {
         price: '₹1,880',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL4538',
@@ -699,7 +699,7 @@ const productsData = {
         price: '₹1,030',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5389',
@@ -711,7 +711,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5391',
@@ -723,7 +723,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5393',
@@ -735,7 +735,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5394',
@@ -747,7 +747,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5395',
@@ -759,7 +759,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5396',
@@ -771,7 +771,7 @@ const productsData = {
         price: 'Inquiry',
         MSDS: '-',
         COA: '-',
-        category: 'Acid Halides'
+        category: 'Acid Halides',
       },
       {
         articleNo: 'AL5399',

@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../components/contexts/CartContext"; // Import useCart, not CartContext
 import logo from "../assets/Fugic logo.png";
-import { FaSearch, FaShoppingCart, FaUser, FaBars, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaBars } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
+  const { cart } = useCart(); // Use useCart to get the cart state
+
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState({
@@ -13,11 +16,8 @@ const Navbar = () => {
     contact: false,
   });
 
-  const [isLoginOpen, setIsLoginOpen] = useState(false); // Track if login dropdown is open
-  const [passwordVisible, setPasswordVisible] = useState(false); // Track password visibility
-  const [formData, setFormData] = useState({ email: "", password: "" });
-
-  const loginRef = useRef(null); // Ref for the login dropdown
+  // Calculate total quantity of items in the cart (not just the length)
+  const totalItemsInCart = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -33,38 +33,6 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
-
-  const handleLoginToggle = () => {
-    setIsLoginOpen(!isLoginOpen); // Toggle login dropdown
-  };
-
-  const handlePasswordVisibilityToggle = () => {
-    setPasswordVisible(!passwordVisible); // Toggle password visibility
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login data:", formData);
-  };
-
-  // Close login dropdown if clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (loginRef.current && !loginRef.current.contains(event.target)) {
-        setIsLoginOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div>
@@ -86,58 +54,15 @@ const Navbar = () => {
         <div className="navbar-icons">
           <Link to="/cart" className="icon">
             <FaShoppingCart />
+            {/* Show cart count dynamically */}
+            <span className="cart-item-count">
+              {totalItemsInCart > 0 ? totalItemsInCart : 0}
+            </span>
           </Link>
-          {/* <div className="icon" onClick={handleLoginToggle}>
-            <FaUser />
-          </div> */}
           <Link to="/request-quote" className="get-quote">Get Quote</Link>
         </div>
         <FaBars className="hamburger-icon" onClick={toggleMenu} />
       </nav>
-
-      {/* Login Dropdown */}
-      {/* {isLoginOpen && (
-        <div className="login-dropdown" ref={loginRef}>
-          <form onSubmit={handleLoginSubmit}>
-            <label>
-              Email:
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-
-            <label>
-              Password:
-              <div className="password-wrapper">
-                <input
-                  type={passwordVisible ? "text" : "password"}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  required
-                />
-                <div
-                  className="password-eye"
-                  onClick={handlePasswordVisibilityToggle}
-                >
-                  {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-                </div>
-              </div>
-            </label>
-
-            <button type="submit" className="login-btn">Login</button>
-
-            <div className="extra-links">
-              <Link to="/forgot-password" className="inloop">Forgot Password?</Link>
-              <Link to="/login-register" className="inloop">Register</Link>
-            </div>
-          </form>
-        </div> */}
-      {/* )} */}
 
       <nav className={`navbar-secondary ${menuOpen ? "active" : ""}`}>
         <ul>

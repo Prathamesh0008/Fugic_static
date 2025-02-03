@@ -17,40 +17,44 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import ProductPage from "./pages/ProductPage";
 import GloballyHarmonizedSystem from "./components/GloballyHarmonizedSystem/GloballyHarmonizedSystem";
+import CartPage from "./pages/CartPage";
+import { CartProvider } from "./components/contexts/CartContext"; // Import CartProvider
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        {/* General Pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/request-quote" element={<RequestQuotePage />} />
-        <Route path="/login-register" element={<LoginRegisterPage />} />
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          {/* General Pages */}
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/request-quote" element={<RequestQuotePage />} />
+          <Route path="/login-register" element={<LoginRegisterPage />} />
 
-        {/* Product Categories */}
-        <Route path="/products/chemical" element={<ChemicalPage />} />
-        <Route path="/products/glassware" element={<GlasswarePage />} />
-        <Route path="/products/filterpaper" element={<FilterPaperPage/>} />
+          {/* Product Categories */}
+          <Route path="/products/chemical" element={<ChemicalPage />} />
+          <Route path="/products/glassware" element={<GlasswarePage />} />
+          <Route path="/products/filterpaper" element={<FilterPaperPage />} />
 
-        {/* Product Pages */}
-        <Route path="/product/:id" element={<ProductDetailsPage />} /> {/* Assuming `id` is a specific product */}
-        <Route path="/products/category/:category" element={<ProductPage />} /> {/* Changed to avoid conflict */}
+          {/* Product Pages */}
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+          <Route path="/products/category/:category" element={<ProductPage />} />
 
-        {/* Other Pages */}
-        <Route path="/GloballyHarmonized" element={<GloballyHarmonizedSystemPage />} />
-        <Route path="/GloballyHarmonizedSystem" element={<GloballyHarmonizedSystem/>} />
+          {/* Other Pages */}
+          <Route path="/GloballyHarmonized" element={<GloballyHarmonizedSystemPage />} />
+          <Route path="/GloballyHarmonizedSystem" element={<GloballyHarmonizedSystem />} />
 
-        {/* Catch-all Route (Ensure it's last) */}
-        <Route path="/:link" element={<FullDescriptionPage />} />
-      </Routes>
+          {/* Catch-all Route (Ensure it's last) */}
+          <Route path="/:link" element={<FullDescriptionPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
 
-      {/* <WhatsAppButton/> */}
-      <ScrollToTop />
-      <Footer />
-    </Router>
+        <ScrollToTop />
+        <Footer />
+      </Router>
+    </CartProvider>
   );
 };
 
