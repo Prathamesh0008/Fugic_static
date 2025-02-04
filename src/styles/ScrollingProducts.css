@@ -1,0 +1,71 @@
+/* Container styles */
+.scrolling-products-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+    overflow: hidden; /* Hide overflow to create the scrolling effect */
+  }
+  
+  .scrolling-products-content {
+    display: flex;
+    gap: 1rem;
+    animation: scroll-left 20s linear infinite; /* Infinite scroll animation */
+  }
+  
+  .scrolling-product-card {
+    flex: 0 0 calc(25% - 1rem); /* 4 items per row on large screens */
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .scrolling-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scrolling-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .scrolling-product-name {
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Keyframes for infinite scroll effect */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%); /* Scroll all the way by 100% of the container */
+    }
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* For tablets (portrait) and smaller devices */
+  @media (max-width: 768px) {
+    .scrolling-product-card {
+      flex: 0 0 calc(50% - 1rem); /* 2 items per row */
+    }
+  }
+  
+  /* For smaller mobile devices */
+  @media (max-width: 480px) {
+    .scrolling-product-card {
+      flex: 0 0 100%; /* 1 item per row */
+    }
+  }
+  

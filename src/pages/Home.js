@@ -10,14 +10,19 @@ import ContactUs from "../components/ContactUs/ContactUs";
 import ProductComponent from "../components/Products/ProductComponent";
 import GloballyHarmonizedSystem from "../components/GloballyHarmonizedSystem/GloballyHarmonizedSystem";
 import Certifications from "../components/Certifications/Certifications";
+import OurValues from "../components/Ourvalues/OurValues";
+// import ScrollingProducts from "./ScrollingProducts";
 
 const Home = () => {
   return (
     <div>
       <Banner /> 
+      <OurValues/>
+      <LatestNews/>
       <ProductComponent/>
       <ProductSection/>
-      <LatestNews/>
+      
+      {/* <ScrollingProducts/> */}
       <WhatMakesUsSpecial/>
       <Certifications/>
       <FugicSpotlight/>

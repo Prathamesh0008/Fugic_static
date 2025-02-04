@@ -1,0 +1,91 @@
+/* Container for the entire OurValues section */
+.our-values-container {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(0.25turn, #45a0d7, #ebf8e1, #45a0d7);
+   
+  }
+  
+  /* Title styling */
+  .our-values-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #333;
+  }
+  
+  /* Flex container to hold all the value cards */
+  .values {
+    max-width: 1400px;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* Align items in a row with space between */
+    gap: 2rem;
+    flex-wrap: no-wrap; /* Prevent wrapping to ensure they stay in one row */
+  }
+  
+  /* Card styling for each value */
+  .value-card {
+    background-color: #fff;
+    width: 380px; /* Slightly smaller width to fit 4 cards comfortably */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for value cards */
+  .value-card:hover {
+    /* transform: translateY(-10px); */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Icon styling */
+  .value-icon {
+    font-size: 4rem;
+    color: #5db0e1; /* Match your logo color */
+    margin-bottom: 1rem;
+  }
+  
+  /* Card title styling */
+  .value-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Card description styling */
+  .value-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 1024px) {
+    .values {
+      justify-content: space-evenly; /* Adjust spacing when screen size is smaller */
+    }
+    .value-card {
+      width: 200px; /* Reduce card width on smaller screens */
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .value-card {
+      width: 180px; /* Adjust card width further for tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .values {
+      flex-direction: column; /* Stack the cards vertically for mobile */
+      align-items: center;
+    }
+    .value-card {
+      width: 90%; /* Make cards take up more space on mobile */
+    }
+  }
+  

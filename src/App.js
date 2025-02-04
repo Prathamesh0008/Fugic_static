@@ -19,6 +19,7 @@ import ProductPage from "./pages/ProductPage";
 import GloballyHarmonizedSystem from "./components/GloballyHarmonizedSystem/GloballyHarmonizedSystem";
 import CartPage from "./pages/CartPage";
 import { CartProvider } from "./components/contexts/CartContext"; // Import CartProvider
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
           {/* Catch-all Route (Ensure it's last) */}
           <Route path="/:link" element={<FullDescriptionPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage/>} />
         </Routes>
 
         <ScrollToTop />

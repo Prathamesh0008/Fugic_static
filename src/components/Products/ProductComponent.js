@@ -32,7 +32,7 @@ const products = [
 const ProductComponent = () => {
   return (
     <div className="product-container">
-      <h2 className="product-header"> Products</h2>
+      <h2 className="product-header"> Additional Products</h2>
       <div className="product-grid">
         {products.map((product, index) => (
           <div key={index} className="product-card-container">
