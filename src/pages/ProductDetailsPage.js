@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // Import useParams
 import { FiFileText } from "react-icons/fi"; // Icon for PDF
 import "../styles/ProductDetailsPage.css";
+import { useCart } from "../components/contexts/CartContext";
 // import { Link } from "react-router-dom"; // Import Link for routing
 
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
@@ -10,18 +11,53 @@ import productData from "../assets/productData"; // Assuming productData is an a
 
 const ProductDetailsPage = () => {
   const { id } = useParams(); // Get product id from URL
+  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [mainImage, setMainImage] = useState(""); // State for the main image
+  const [selectedUnit, setSelectedUnit] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [mainImage, setMainImage] = useState("");
 
   // Fetch product data based on id
   useEffect(() => {
     const selectedProduct = productData.find((prod) => prod.id === parseInt(id));
     if (selectedProduct) {
       setProduct(selectedProduct);
-      setMainImage(selectedProduct.mainImage); // Set the initial main image
+      setMainImage(selectedProduct.mainImage);
+
+      if (selectedProduct.pricing.length > 0) {
+        setSelectedUnit(selectedProduct.pricing[0].packSize);
+        setSelectedPrice(selectedProduct.pricing[0].price);
+      }
     }
   }, [id]);
+  const handleAddToCart = () => {
+    if (!selectedUnit) {
+      alert("Please select a unit before adding to cart!");
+      return;
+    }
+
+    const cartItem = {
+      id: product.id,
+      articleNo: product.articleNo,
+      chemicalName: product.name,
+      purity: product.chemicalInfo.Purity || "-",
+      casNo: product.chemicalInfo.CAS || "-",
+      formula: product.chemicalInfo.MolecularFormula || "-",
+      selectedUnit,
+      selectedPrice,
+      quantity,
+      MSDS: product.msdsFile,
+      COA: product.coaFile,
+    };
+
+    addToCart(cartItem);
+    alert("Product added to cart successfully!");
+  };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   // Update breadcrumb path when product is fetched
   const breadcrumbPaths = [
@@ -30,17 +66,13 @@ const ProductDetailsPage = () => {
     product && { name: product.name, link: `/product/${product.id}` } // Add product name to the breadcrumb
   ].filter(Boolean); // Remove any null or undefined values from the array
 
-  if (!product) {
-    return <div>Loading...</div>; // Or display an error message if no product is found
-  }
+  
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
 
-  const handleAddToCart = () => {
-    console.log(`Added ${quantity} items to the cart`);
-  };
+
 
   const handleDownload = (filePath) => {
     const link = document.createElement("a");

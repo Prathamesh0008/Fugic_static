@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../styles/RequestQuote.css";
-import bannerImage from "../assets/banner/dnaa.jpg"; // Replace with your image path
-import { FaSearch, FaDownload, FaQuestionCircle } from "react-icons/fa"; // Import FaQuestionCircle
-import ContactUs from "../components/ContactUs/ContactUs";
+import bannerImage from "../assets/banner/dnaa.jpg"; 
+import { FaSearch, FaDownload, FaQuestionCircle } from "react-icons/fa"; 
 
 const RequestQuote = () => {
   const [csvFile, setCsvFile] = useState(null);
@@ -17,6 +17,8 @@ const RequestQuote = () => {
     country: "",
   });
 
+  const [status, setStatus] = useState("");
+
   const handleFileUpload = (event) => {
     setCsvFile(event.target.files[0]);
   };
@@ -26,11 +28,42 @@ const RequestQuote = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Submitted", formData);
-    console.log("CSV File", csvFile);
+    setStatus("Sending...");
+  
+    const formDataToSend = new FormData();
+    // Append all form fields to FormData
+    for (let key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+  
+    if (csvFile) {
+      formDataToSend.append("csvFile", csvFile);
+    }
+  
+    try {
+      const response = await axios.post("http://localhost:5000/send-quote-email", formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Ensure the correct content type for file upload
+        },
+      });
+      setStatus(response.data.message);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        role: "",
+        businessSegment: "",
+        company: "",
+        country: "",
+      }); // Reset form
+    } catch (error) {
+      setStatus("Failed to send email.");
+    }
   };
+  
 
   const handleDownloadTemplate = () => {
     const csvContent = "data:text/csv;charset=utf-8,Column1,Column2,Column3";
@@ -45,7 +78,6 @@ const RequestQuote = () => {
 
   return (
     <div className="request-quote-page">
-      {/* Banner Section */}
       <div className="banner">
         <div className="banner-text">
           <h1>Request a Quote</h1>
@@ -56,16 +88,12 @@ const RequestQuote = () => {
         </div>
       </div>
 
-      {/* Main Content Section */}
       <div className="request-quote-container">
         <div className="quote-search">
           <label>
             Chemical Name, CAS # Search:
             <div className="search-input">
-              <input
-                type="text"
-                placeholder="Enter chemical name or CAS #"
-              />
+              <input type="text" placeholder="Enter chemical name or CAS #" />
               <FaSearch className="search-icon" />
             </div>
           </label>
@@ -196,8 +224,9 @@ const RequestQuote = () => {
 
           <button type="submit" className="btn submit-btn">Submit</button>
         </form>
-      </div>
 
+        <p>{status}</p>
+      </div>
     </div>
   );
 };

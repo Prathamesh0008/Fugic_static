@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { FaBuilding, FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import "../styles/CheckoutPage.css"; // Import CSS
+import axios from "axios";
+import "../styles/CheckoutPage.css";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 
 const CheckoutPage = () => {
+  const location = useLocation();
   const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState(""); 
+
   const [formData, setFormData] = useState({
     companyName: "",
     contactPerson: "",
@@ -13,29 +18,68 @@ const CheckoutPage = () => {
     address: "",
   });
 
-  // Handle form input changes
+  // Get order data from navigation state
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    if (location.state?.orderData?.cartItems) {
+      setCartItems(location.state.orderData.cartItems);
+      console.log("Received Cart Items:", location.state.orderData.cartItems);
+    } else {
+      console.error("No cart data found in navigation state.");
+    }
+  }, [location.state]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const breadcrumbPaths = [
     { name: "Home", link: "/" },
     { name: "Checkout", link: "" },
-  // Add product name to the breadcrumb
   ].filter(Boolean);
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (cartItems.length === 0) {
+      setPopupMessage("❌ Your cart is empty. Please add items before submitting.");
+      setShowPopup(true);
+      return;
+    }
+
+    const orderData = {
+      companyName: formData.companyName,
+      contactPerson: formData.contactPerson,
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      address: formData.address,
+      cartItems, // Attach the cart data
+    };
+
+    console.log("Submitting Order Data:", orderData);
+
+    try {
+      const response = await axios.post("http://localhost:5000/submit-order", orderData, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.status === 200) {
+        setPopupMessage("🎉 Thank you! Our sales team will get back to you.");
+      }
+    } catch (error) {
+      console.error("Error submitting order:", error.response?.data || error.message);
+      setPopupMessage("😞 Something went wrong. Please try again.");
+    }
+
     setShowPopup(true);
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 5000); // Hide popup after 5 seconds
+    setTimeout(() => setShowPopup(false), 5000);
   };
 
   return (
     <div className="checkout-page-container">
-    <Breadcrumb paths={breadcrumbPaths} />
+      <Breadcrumb paths={breadcrumbPaths} />
       <h2 className="checkout-title">Complete Your Order</h2>
 
       <form className="checkout-form" onSubmit={handleSubmit}>
@@ -109,8 +153,7 @@ const CheckoutPage = () => {
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
-            <h3>🎉 Thank You!</h3>
-            <p>Our sales team will get back to you within a few minutes.</p>
+            <h3>{popupMessage}</h3>
             <button className="popup-close-btn" onClick={() => setShowPopup(false)}>OK</button>
           </div>
         </div>
