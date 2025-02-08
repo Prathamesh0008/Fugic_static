@@ -1,0 +1,23 @@
+/* Rolling Text Navbar */
+.rolling-text-container {
+    width: 100%;
+    overflow: hidden;
+    background: #0893e4;
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+    padding: 8px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .rolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+    transition: transform 0.05s linear;
+  }
+  

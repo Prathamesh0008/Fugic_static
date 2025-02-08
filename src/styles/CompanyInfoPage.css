@@ -1,0 +1,51 @@
+.company-info-containers{
+    background: linear-gradient(0.25turn, #cfd9df, #ebf8e1, #e2ebf0);
+}
+.company-info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    /* background: linear-gradient(0.25turn, #cfd9df, #ebf8e1, #e2ebf0); */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .company-header {
+    font-size: 2rem;
+    color: #0893e4;
+    margin-bottom: 1rem;
+  }
+  
+  /* Table Styling */
+  .company-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  
+  .company-details-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  .table-heading {
+    font-weight: bold;
+    background-color: #5195bd;
+    color: white;
+    text-align: left;
+  }
+  
+  /* Google Maps Container */
+  .map-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .office-map {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+  }
+  

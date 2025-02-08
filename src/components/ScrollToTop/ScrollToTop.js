@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
 import "./ScrollToTop.css"; // Import styles
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { pathname } = useLocation();
+
+  // Automatically scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // Show button when scrolled down
   useEffect(() => {
@@ -28,12 +35,14 @@ const ScrollToTop = () => {
   };
 
   return (
-    <button 
-      className={`scroll-to-top ${isVisible ? "show" : ""}`} 
-      onClick={scrollToTop}
-    >
-      <FaArrowUp />
-    </button>
+    <>
+      <button
+        className={`scroll-to-top ${isVisible ? "show" : ""}`}
+        onClick={scrollToTop}
+      >
+        <FaArrowUp />
+      </button>
+    </>
   );
 };
 

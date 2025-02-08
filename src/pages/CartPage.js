@@ -1,12 +1,26 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-import { useCart } from "../components/contexts/CartContext"; // Import useCart
-import "../styles/CartPage.css"; // Ensure you create this CSS file for styling
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../components/contexts/CartContext";
+import "../styles/CartPage.css";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import { useCurrency } from "../components/contexts/CurrencyContext";
+
+const currencySymbols = {
+  INR: "₹",
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  JPY: "¥",
+  AUD: "A$",
+  CAD: "C$",
+  CNY: "¥",
+};
 
 const CartPage = () => {
-  const { cart, removeFromCart, clearCart } = useCart(); // Get cart state and functions from CartContext
-  const navigate = useNavigate(); // Use useNavigate for redirect
+  const { currency } = useCurrency();
+  const { cart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
+
   const breadcrumbPaths = [
     { name: "Home", link: "/" },
     { name: "Your Cart", link: "" },
@@ -14,9 +28,9 @@ const CartPage = () => {
 
   const formatCartItems = () => {
     return cart.map((item) => ({
-      productId: item.articleNo, // Use appropriate fields
+      productId: item.articleNo,
       productName: item.chemicalName,
-      quantity: 1, // Assuming 1 item per entry or whatever the logic is
+      quantity: 1,
       price: item.selectedPrice,
     }));
   };
@@ -25,8 +39,6 @@ const CartPage = () => {
     const orderData = {
       cartItems: formatCartItems(),
     };
-
-    // Navigate to CheckoutPage with order data
     navigate("/checkout", { state: { orderData } });
   };
 
@@ -37,7 +49,6 @@ const CartPage = () => {
 
       {cart.length > 0 ? (
         <>
-          {/* Regular Table for Large Screens */}
           <div className="cart-table-wrapper">
             <table className="cart-table">
               <thead>
@@ -53,53 +64,53 @@ const CartPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {cart.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.articleNo}</td>
-                    <td>{item.chemicalName}</td>
-                    <td>{item.purity}</td>
-                    <td>{item.casNo}</td>
-                    <td>{item.formula}</td>
-                    <td>{item.selectedUnit}</td>
-                    <td>{item.selectedPrice}</td>
-                    <td>
-                      <button
-                        className="remove-btn"
-                        onClick={() => removeFromCart(index)}
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {cart.map((item, index) => {
+                  console.log("Cart Item:", item);
+                  console.log("Item Currency:", item.currency);
+                  console.log("Global Currency Context:", currency);
+
+                  return (
+                    <tr key={index}>
+                      <td>{item.articleNo}</td>
+                      <td>{item.chemicalName}</td>
+                      <td>{item.purity}</td>
+                      <td>{item.casNo}</td>
+                      <td>{item.formula}</td>
+                      <td>{item.selectedUnit}</td>
+                      <td>
+                        {item.currency && currencySymbols[item.currency]
+                          ? `${currencySymbols[item.currency]} ${item.selectedPrice}`
+                          : `${currencySymbols[currency] || currency} ${item.selectedPrice}`}
+                      </td>
+                      <td>
+                        <button
+                          className="remove-btn"
+                          onClick={() => removeFromCart(index)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
 
-          {/* Responsive Card View for Small Screens */}
           <div className="cart-mobile-view">
             {cart.map((item, index) => (
               <div className="cart-item-card" key={index}>
+                <p><strong>Article No.:</strong> {item.articleNo}</p>
+                <p><strong>Chemical Name:</strong> {item.chemicalName}</p>
+                <p><strong>Purity:</strong> {item.purity}</p>
+                <p><strong>CAS No.:</strong> {item.casNo}</p>
+                <p><strong>Formula:</strong> {item.formula}</p>
+                <p><strong>Unit:</strong> {item.selectedUnit}</p>
                 <p>
-                  <strong>Article No.:</strong> {item.articleNo}
-                </p>
-                <p>
-                  <strong>Chemical Name:</strong> {item.chemicalName}
-                </p>
-                <p>
-                  <strong>Purity:</strong> {item.purity}
-                </p>
-                <p>
-                  <strong>CAS No.:</strong> {item.casNo}
-                </p>
-                <p>
-                  <strong>Formula:</strong> {item.formula}
-                </p>
-                <p>
-                  <strong>Unit:</strong> {item.selectedUnit}
-                </p>
-                <p>
-                  <strong>Price:</strong> {item.selectedPrice}
+                  <strong>Price:</strong>{" "}
+                  {item.currency && currencySymbols[item.currency]
+                    ? `${currencySymbols[item.currency]} ${item.selectedPrice}`
+                    : `${currencySymbols[currency] || currency} ${item.selectedPrice}`}
                 </p>
                 <button
                   className="remove-btn"

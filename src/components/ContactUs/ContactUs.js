@@ -29,7 +29,7 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        "https://fugic-static-backend.onrender.com/send-email",
+        "http://localhost:5000/send-email",
         formData
       );
       setStatus(response.data.message);

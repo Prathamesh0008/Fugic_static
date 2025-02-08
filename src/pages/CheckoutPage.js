@@ -8,7 +8,9 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 const CheckoutPage = () => {
   const location = useLocation();
   const [showPopup, setShowPopup] = useState(false);
-  const [popupMessage, setPopupMessage] = useState(""); 
+  const [popupMessage, setPopupMessage] = useState("");
+  const [popupType, setPopupType] = useState("success"); // "success" or "error"
+  const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const [formData, setFormData] = useState({
     companyName: "",
@@ -18,7 +20,6 @@ const CheckoutPage = () => {
     address: "",
   });
 
-  // Get order data from navigation state
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -44,10 +45,11 @@ const CheckoutPage = () => {
     e.preventDefault();
 
     if (cartItems.length === 0) {
-      setPopupMessage("❌ Your cart is empty. Please add items before submitting.");
-      setShowPopup(true);
+      showPopupMessage("❌ Your cart is empty. Please add items before submitting.", "error");
       return;
     }
+
+    setIsLoading(true); // Show loading spinner
 
     const orderData = {
       companyName: formData.companyName,
@@ -55,7 +57,7 @@ const CheckoutPage = () => {
       email: formData.email,
       phoneNumber: formData.phoneNumber,
       address: formData.address,
-      cartItems, // Attach the cart data
+      cartItems,
     };
 
     console.log("Submitting Order Data:", orderData);
@@ -66,15 +68,27 @@ const CheckoutPage = () => {
       });
 
       if (response.status === 200) {
-        setPopupMessage("🎉 Thank you! Our sales team will get back to you.");
+        showPopupMessage(
+          `🎉 Thank you, ${formData.contactPerson || "Customer"}! Your order has been received. Our sales team will get back to you soon`,
+          "success"
+        );
       }
     } catch (error) {
       console.error("Error submitting order:", error.response?.data || error.message);
-      setPopupMessage("😞 Something went wrong. Please try again.");
+      showPopupMessage("😞 Oops! Something went wrong. Please try again later.", "error");
     }
 
+    setIsLoading(false); // Hide loading spinner
+  };
+
+  const showPopupMessage = (message, type) => {
+    setPopupMessage(message);
+    setPopupType(type);
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 5000);
+
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 4000);
   };
 
   return (
@@ -147,16 +161,26 @@ const CheckoutPage = () => {
           />
         </div>
 
-        <button type="submit" className="submit-btn">Submit Order</button>
+        <button type="submit" className={`submit-btn ${isLoading ? "loading" : ""}`} disabled={isLoading}>
+  {isLoading ? (
+    <div className="loading-overlay">
+      <div className="loading-spinner"></div>
+    </div>
+  ) : (
+    "Submit Order"
+  )}
+</button>
+
       </form>
 
       {showPopup && (
-        <div className="popup">
+        <div className={`popup ${popupType}`}>
           <div className="popup-content">
             <h3>{popupMessage}</h3>
             <button className="popup-close-btn" onClick={() => setShowPopup(false)}>OK</button>
           </div>
         </div>
+        
       )}
     </div>
   );

@@ -23,7 +23,7 @@ const products = [
     link: '/products/FilterPaper',
   },
   {
-    name: 'Cleaning Solution ',
+    name: 'Cleaning Solution',
     image: cleaning,
     link: '/products/cleaning',
   },
@@ -31,20 +31,16 @@ const products = [
 
 const ProductComponent = () => {
   return (
-    <div className="product-container">
-      <h2 className="product-header"> Additional Products</h2>
-      <div className="product-grid">
+    <div className="custom-product-container">
+      <h2 className="custom-product-header">Additional Products</h2>
+      <div className="custom-product-grid">
         {products.map((product, index) => (
-          <div key={index} className="product-card-container">
-            <Link to={product.link} className="product-card-link">
-              <div className="product-card">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
+          <div key={index} className="custom-product-card-wrapper">
+            <Link to={product.link} className="custom-product-card-link">
+              <div className="custom-product-card">
+                <img src={product.image} alt={product.name} className="custom-product-image" />
               </div>
-              <div className="product-title">{product.name}</div>
+              <div className="custom-product-title">{product.name}</div>
             </Link>
           </div>
         ))}

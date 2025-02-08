@@ -1,137 +1,113 @@
 /* Product Page Container */
 .product-page-container {
-  max-width: 1100px;
-  margin: 40px auto;
+  width: 90%;
+  margin: auto;
   padding: 20px;
-  background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  font-family: Arial, sans-serif;
 }
 
-/* Default Table Layout (For Large Screens) */
+/* Page Header */
+.product-page-header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Currency Toggle Button */
+.currency-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.currency-toggle-btn {
+  padding: 8px 15px;
+  background: #5db0e1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.currency-toggle-btn:hover {
+  background: #4a96c7;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Product Table (Desktop View) */
 .product-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
-  table-layout: auto;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 10px;
 }
 
-/* Table Headings */
 .product-table th,
 .product-table td {
+  padding: 10px;
   border: 1px solid #ddd;
-  padding: 12px;
   text-align: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
 }
 
 .product-table th {
-  background-color: #5db0e1;
+  background: #5db0e1;
   color: white;
-  font-weight: bold;
+  font-size: 16px;
 }
 
-/* Alternating Row Colors */
-.product-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.product-table tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Ensure long text wraps properly */
-.product-table td {
-  max-width: 250px; /* Prevent text from overflowing */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Convert Table to Column Format on Small Screens */
-@media (max-width: 768px) {
-  .product-table {
-    display: block;
-    width: 100%;
-  }
-
-  .product-table thead {
-    display: none; /* Hide table headers */
-  }
-
-  .product-table tbody {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .product-table tbody tr {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Fix label and value sticking issue */
-  .product-table tbody tr td {
-    display: block; /* Ensure label and value are stacked */
-    border: none;
-    text-align: left;
-    padding: 10px;
-    font-size: 14px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
-
-  .product-table tbody tr td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block; /* Force label to a new line */
-    margin-bottom: 5px; /* Add space between label and value */
-    color: #5db0e1;
-  }
-
-  /* Ensure Chemical Name specifically has proper spacing */
-  .product-table tbody tr td[data-label="Chemical Name"] {
-    max-width: 250px;
-  }
-}
-
-/* Unit Checkbox Styles */
-.product-table td .unit-checkbox-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.product-table td .unit-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.product-table td .unit-checkbox input[type="checkbox"] {
-  cursor: pointer;
-}
-
-.product-table td .unit-checkbox label {
+/* Select Dropdown */
+.product-table select {
+  padding: 5px;
   font-size: 14px;
-  color: #333;
+  border-radius: 5px;
+  border: 1px solid #ddd;
   cursor: pointer;
 }
 
-.product-table td .unit-checkbox input[type="checkbox"]:checked + label {
+/* Links */
+.product-table a {
+  color: #007bff;
+  text-decoration: none;
   font-weight: bold;
-  color: #5db0e1;
+}
+
+.product-table a:hover {
+  text-decoration: underline;
+}
+
+/* Add to Cart Button */
+.product-table button {
+  padding: 6px 12px;
+  background: #ff5722;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.product-table button:hover {
+  background: #e64a19;
+}
+
+.product-card {
+  display: none;
+}
+
+/* Ensure Pagination is Centered */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 /* Pagination Controls */
@@ -140,58 +116,165 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  gap: 10px;
+  gap: 15px;
+  width: 100%;
+  text-align: center;
 }
 
-.pagination-controls button {
-  padding: 6px 12px;
+
+/* Pagination Buttons */
+.pagination-btn {
+  padding: 10px 20px;
   border: none;
-  background-color: #5db0e1;
+  background: #5db0e1;
   color: white;
-  font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #4a96c7;
+  transform: scale(1.05);
+}
+
+/* Previous and Next Buttons */
+.pagination-prev, .pagination-next {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-prev {
+  background: #f39c12;
+}
+
+.pagination-prev:hover {
+  background: #e67e22;
+  transform: scale(1.05);
+}
+
+.pagination-next {
+  background: #5db0e1;
+}
+
+.pagination-next:hover {
+  background: #218c53;
+  transform: scale(1.05);
+}
+
+
+/* Go to Cart Button */
+.go-to-cart-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
   transition: background 0.3s ease;
 }
 
-.pagination-controls button:hover {
-  background-color: #4a9ecf;
+.go-to-cart-btn:hover {
+  background: #218838;
 }
 
-.pagination-controls button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-/* Add to Cart Button Styles */
-.add-to-cart-btn {
-  padding: 8px 16px;
-  background-color: #5db0e1; /* Primary color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  text-align: center;
-  display: inline-block;
-}
+/* Mobile View: Hide Table, Show Product Cards */
+@media (max-width: 768px) {
+  .table-wrapper {
+    display: none;
+  }
 
-/* Hover effect */
-.add-to-cart-btn:hover {
-  background-color: #4a9ecf; /* Slightly darker shade */
-  transform: translateY(-2px); /* Subtle lift on hover */
-}
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 
-/* Disabled state for button */
-.add-to-cart-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  transform: none;
-}
+  .product-card {
+    width: 90%;
+    max-width: 420px;
+    min-height: 500px;
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-/* Optional: Add spacing around the button in the table */
-.product-table td[data-label="ADD TO CART"] {
-  text-align: center;
-}
+  .product-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
 
+  .product-card p {
+    font-size: 16px;
+    color: #555;
+    margin: 8px 0;
+  }
+
+  .product-card select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    height: auto;
+  }
+
+  .product-card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin: 8px 0;
+    font-size: 16px;
+  }
+
+  .product-card button {
+    width: 100%;
+    padding: 14px;
+    background: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .product-card button:hover {
+    background: #e64a19;
+  }
+
+  /* Mobile Pagination Buttons */
+  .pagination-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination-btn {
+    width: 120px;
+  }
+}

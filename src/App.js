@@ -20,12 +20,15 @@ import GloballyHarmonizedSystem from "./components/GloballyHarmonizedSystem/Glob
 import CartPage from "./pages/CartPage";
 import { CartProvider } from "./components/contexts/CartContext"; // Import CartProvider
 import CheckoutPage from "./pages/CheckoutPage";
+import CompanyInfoPage from "./pages/CompanyInfoPage";
+import NavbarMenu from "./components/NavbarMenu";
 
 const App = () => {
   return (
     <CartProvider>
       <Router>
         <Navbar />
+        {/* <NavbarMenu/> */}
         <Routes>
           {/* General Pages */}
           <Route path="/" element={<Home />} />
@@ -51,6 +54,7 @@ const App = () => {
           <Route path="/:link" element={<FullDescriptionPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage/>} />
+          <Route path="/company-info" element={<CompanyInfoPage />} />
         </Routes>
 
         <ScrollToTop />

@@ -40,6 +40,7 @@
     transition: all 0.3s ease;
     box-sizing: border-box; /* Ensures padding and border don't affect overall size */
     margin-bottom: 20px; /* Add margin to space out the boxes */
+    
 }
 
 .product-box:hover {
@@ -49,6 +50,9 @@
 
 .product-image-container {
     position: relative;
+}
+.product-image-container h3{
+    font-size: 1.1rem;
 }
 
 .product-box img {
@@ -99,6 +103,10 @@
         width: 48%;
        
         height: 20%; /* 2 items per row */
-        font-size: 11px;
+        /* font-size: 11px; */
+    }
+    .product-image-container h3{
+        font-size: 15px;
+        overflow: hidden;
     }
 }

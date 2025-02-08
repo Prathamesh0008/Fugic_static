@@ -1,0 +1,129 @@
+/* Main Navbar */
+.navbar-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    max-width: 1500px;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Sticky Navbar After Scroll */
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo */
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+  
+  /* Search Bar */
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  .search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .search-icon {
+    margin-left: 5px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Navbar Icons */
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #333;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .cart-item-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+  }
+  
+  .get-quote {
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .get-quote:hover {
+    background: #0056b3;
+  }
+  
+  /* Mobile View */
+  .hamburger-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .navbar-main {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+    }
+  
+    .search-container {
+      width: 90%;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-main {
+      padding: 10px;
+    }
+  
+    .logo {
+      width: 120px;
+    }
+  
+    .search-container {
+      width: 100%;
+    }
+  }
+  

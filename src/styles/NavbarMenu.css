@@ -1,0 +1,61 @@
+.navbar-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+  }
+ 
+  
+  
+  .navbar-menu ul li a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 15px;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .navbar-menu ul li a.active {
+    color: #5db0e1 ;
+    font-weight: bold ;
+    border-bottom: 2px solid #5db0e1 !important;
+  }
+  .menu-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 30vh;
+  background: #0b6ca3;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  z-index: 1000;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.close-menu {
+  font-size: 24px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.menu-popup ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-popup li {
+  margin: 15px 0;
+}
+
+.menu-popup a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+}
