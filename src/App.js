@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Contact from "./pages/Contact";
+// import Contact from "./pages/Contact";
 import FullDescriptionPage from "./pages/FullDescriptionPage";
 import RequestQuotePage from "./pages/RequestQuote";
 import LoginRegisterPage from "./pages/LoginRegisterPage";
@@ -22,6 +22,7 @@ import { CartProvider } from "./components/contexts/CartContext"; // Import Cart
 import CheckoutPage from "./pages/CheckoutPage";
 import CompanyInfoPage from "./pages/CompanyInfoPage";
 import NavbarMenu from "./components/NavbarMenu";
+import Services from "./pages/ServicesPage";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
           {/* General Pages */}
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/request-quote" element={<RequestQuotePage />} />
           <Route path="/login-register" element={<LoginRegisterPage />} />
 
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage/>} />
           <Route path="/company-info" element={<CompanyInfoPage />} />
+          <Route path="/services" element={<Services/>} />
         </Routes>
 
         <ScrollToTop />

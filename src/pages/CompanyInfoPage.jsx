@@ -1,12 +1,21 @@
 import React from "react";
 import "../styles/CompanyInfoPage.css"; // Import the stylesheet
 import ContactUs from "../components/ContactUs/ContactUs";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+
+const breadcrumbPaths = [
+  { name: "Home", link: "/" },
+  { name: "Contact US", link: "" },
+  // product && { name: product.name, link: `/product/${product.id}` } // Add product name to the breadcrumb
+].filter(Boolean); // Remove any null or undefined values from the 
 
 const CompanyInfoPage = () => {
   return (
     <div className="company-info-containers">
+    
     <div className="company-info-container">
-      <h2 className="company-header">Company Information</h2>
+    <Breadcrumb paths={breadcrumbPaths} />
+      <h2 className="company-header">Get in Touch</h2>
       
       {/* Table for office details */}
       <table className="company-details-table">

@@ -45,7 +45,7 @@ const ContactUsPage = () => {
       <h2 className="contact-us-title">Contact Us</h2>
 
       <div className="contact-details">
-        <h3>Contact Information</h3>
+        <h3>Get in Touch</h3>
         <div className="contact-box">
           <p>
             <FaUser /> Name: Mohammed

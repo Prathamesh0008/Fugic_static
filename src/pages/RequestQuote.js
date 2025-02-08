@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/RequestQuote.css";
 import bannerImage from "../assets/banner/dnaa.jpg"; 
 import { FaSearch, FaDownload, FaQuestionCircle } from "react-icons/fa"; 
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 
 const RequestQuote = () => {
   const [csvFile, setCsvFile] = useState(null);
@@ -75,11 +76,17 @@ const RequestQuote = () => {
     link.click();
     document.body.removeChild(link);
   };
+  const breadcrumbPaths = [
+    { name: "Home", link: "/" },
+    { name: "Services", link: "" },
+    // product && { name: product.name, link: `/product/${product.id}` } // Add product name to the breadcrumb
+  ].filter(Boolean); // Remove any null or undefined values from the 
 
   return (
     <div className="request-quote-page">
+      <Breadcrumb paths={breadcrumbPaths} />
       <div className="banner">
-        <div className="banner-text">
+        <div className="banner-text">        
           <h1>Request a Quote</h1>
           <p>Submit your details and download the template to get started.</p>
         </div>
