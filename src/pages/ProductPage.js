@@ -17,19 +17,14 @@ const ProductPage = () => {
   const formattedCategory = category?.toUpperCase().replace(/-/g, " ");
   let products = category ? productsData[category] || [] : [];
 
-  // Search Filter Logic
+  // Extract search query from URL
   const searchParams = new URLSearchParams(location.search);
-  const searchQuery = searchParams.get("search");
-
-  if (searchQuery) {
-    products = products.filter((product) =>
-      product.chemicalName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 20;
   const [selectedUnits, setSelectedUnits] = useState({});
+  const [cartPopup, setCartPopup] = useState(false);
 
   useEffect(() => {
     const initialSelectedUnits = {};
@@ -73,16 +68,28 @@ const ProductPage = () => {
     };
 
     addToCart(cartItem);
+    setCartPopup(true);
+    setTimeout(() => setCartPopup(false), 3000); // Hide after 3 seconds
   };
 
   return (
     <div className="product-page-container">
-    <Breadcrumb paths={[
-      { name: "Home", link: "/" },
-      { name: "Laboratory Chemicals Categories", link: "/products" },
-      category ? { name: formattedCategory } : null,
-    ].filter(Boolean)} />
+      <Breadcrumb paths={[
+        { name: "Home", link: "/" },
+        { name: "Laboratory Chemicals Categories", link: "/products" },
+        category ? { name: formattedCategory } : null,
+      ].filter(Boolean)} />
+
       <h2 className="product-page-header">{formattedCategory}</h2>
+       {/* Add to Cart Popup */}
+       {cartPopup && (
+  <div className="cart-popup">
+    {cart.length > 0 && (
+      <p>{cart[cart.length - 1].chemicalName} added to cart!</p>
+    )}
+  </div>
+)}
+
 
       {/* Desktop Table View */}
       <div className="table-wrapper">
@@ -112,8 +119,13 @@ const ProductPage = () => {
                 priceSymbol = "$";
               }
 
+              const isSearchedProduct =
+                searchQuery &&
+                (product.articleNo.toLowerCase() === searchQuery ||
+                 product.chemicalName.toLowerCase().includes(searchQuery));
+
               return (
-                <tr key={index}>
+                <tr key={index} className={isSearchedProduct ? "highlighted" : ""}>
                   <td>{product.articleNo}</td>
                   <td>{product.chemicalName}</td>
                   <td>{product.purity}</td>
@@ -138,8 +150,8 @@ const ProductPage = () => {
                     </select>
                   </td>
                   <td>{displayPrice !== "-" ? `${priceSymbol} ${displayPrice}` : "-"}</td>
-                  <td><a href={product.MSDS} target="_blank" rel="noopener noreferrer">MSDS</a></td>
-                  <td><a href={product.COA} target="_blank" rel="noopener noreferrer">COA</a></td>
+                  <td><a href={product.MSDS} target="_blank" rel="noopener noreferrer" className="mss">MSDS</a></td>
+                  <td><a href={product.COA} target="_blank" rel="noopener noreferrer" className="mss">COA</a></td>
                   <td><button onClick={() => handleAddToCart(product)}>Add to Cart</button></td>
                 </tr>
               );
@@ -150,36 +162,48 @@ const ProductPage = () => {
 
       {/* Mobile Card View */}
       <div className="product-list">
-        {currentProducts.map((product, index) => (
-          <div className="product-card" key={index}>
-            <h3>{product.chemicalName}</h3>
-            <p><strong>Article No:</strong> {product.articleNo}</p>
-            <p><strong>Purity:</strong> {product.purity}</p>
-            <p><strong>CAS No:</strong> {product.casNo}</p>
-            <p><strong>Formula:</strong> {product.formula}</p>
-            <p><strong>MSDS:</strong> <a href={product.MSDS} target="_blank" rel="noopener noreferrer">Download</a></p>
-            <p><strong>COA:</strong> <a href={product.COA} target="_blank" rel="noopener noreferrer">Download</a></p>
-            <select
-              onChange={(e) => {
-                const selectedIndex = e.target.selectedIndex - 1;
-                if (selectedIndex >= 0) {
-                  handleUnitSelection(product.articleNo, selectedIndex);
-                }
-              }}
-              value={selectedUnits[product.articleNo]?.size || ""}
-            >
-              <option value="">Select Unit</option>
-              {product.units.map((unit, unitIndex) => (
-                <option key={unitIndex} value={unit.size}>
-                  {unit.size}
-                </option>
-              ))}
-            </select>
-            <p><strong>Price ({currency}):</strong> {selectedUnits[product.articleNo] ? `${currency === "INR" ? "₹" : "$"}${(selectedUnits[product.articleNo].priceINR * (currency === "USD" ? exchangeRate : 1)).toFixed(2)}` : "-"}</p>
-            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-          </div>
-        ))}
+  {currentProducts.map((product, index) => {
+    const isSearchedProduct =
+      searchQuery?.trim() &&
+      (product.articleNo.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.chemicalName.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    return (
+      <div
+        className={`product-card ${isSearchedProduct ? "highlighted" : ""}`}
+        key={index}
+      >
+        <h3>{product.chemicalName}</h3>
+        <p><strong>Article No:</strong> {product.articleNo}</p>
+        <p><strong>Purity:</strong> {product.purity}</p>
+        <p><strong>CAS No:</strong> {product.casNo}</p>
+        <p><strong>Formula:</strong> {product.formula}</p>
+        <p><strong>MSDS:</strong> <a href={product.MSDS} target="_blank" rel="noopener noreferrer">Download</a></p>
+        <p><strong>COA:</strong> <a href={product.COA} target="_blank" rel="noopener noreferrer">Download</a></p>
+        <select
+          onChange={(e) => {
+            const selectedIndex = e.target.selectedIndex - 1;
+            if (selectedIndex >= 0) {
+              handleUnitSelection(product.articleNo, selectedIndex);
+            }
+          }}
+          value={selectedUnits[product.articleNo]?.size || ""}
+        >
+          <option value="">Select Unit</option>
+          {product.units.map((unit, unitIndex) => (
+            <option key={unitIndex} value={unit.size}>
+              {unit.size}
+            </option>
+          ))}
+        </select>
+        <p><strong>Price ({currency}):</strong> {selectedUnits[product.articleNo] ? `${currency === "INR" ? "₹" : "$"}${(selectedUnits[product.articleNo].priceINR * (currency === "USD" ? exchangeRate : 1)).toFixed(2)}` : "-"}</p>
+        <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
       </div>
+    );
+  })}
+</div>
+
+
       {/* Pagination Controls */}
       <div className="pagination-controls">
   <button
@@ -202,12 +226,6 @@ const ProductPage = () => {
     Next
   </button>
 </div>
-
-
-
-      {/* <Link to="/cart">
-        <button className="go-to-cart-btn">Go to Cart ({cart.length})</button>
-      </Link> */}
     </div>
   );
 };

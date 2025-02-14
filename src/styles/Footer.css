@@ -17,7 +17,7 @@ body{
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 20px;
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -83,6 +83,41 @@ body{
   color: #5db0e1;
   background-color: transparent;
   transform: scale(1.2);
+}
+.footer-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+/* .colorful-text span:nth-child(1) { color: #ff0000; }
+.colorful-text span:nth-child(2) { color: #ff7300; }
+.colorful-text span:nth-child(3) { color: #ffeb00; }
+.colorful-text span:nth-child(4) { color: #47ff00; }
+.colorful-text span:nth-child(5) { color: #00ffee; }
+.colorful-text span:nth-child(6) { color: #0047ff; }
+.colorful-text span:nth-child(7) { color: #7d00ff; } */
+
+@keyframes rainbow {
+  0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+  14% { color: #ff7300; text-shadow: 0 0 10px #ff7300; }
+  28% { color: #ffeb00; text-shadow: 0 0 10px #ffeb00; }
+  42% { color: #47ff00; text-shadow: 0 0 10px #47ff00; }
+  57% { color: #00ffee; text-shadow: 0 0 10px #00ffee; }
+  71% { color: #0047ff; text-shadow: 0 0 10px #0047ff; }
+  85% { color: #7d00ff; text-shadow: 0 0 10px #7d00ff; }
+  100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+}
+
+.colorful-text {
+  font-size: 1rem;  /* Bigger text */
+  font-weight: bold;  /* Make it bold */
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Adds spacing for a better look */
+  animation: rainbow 2s infinite linear; /* Smooth infinite animation */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Glowing effect */
+  cursor: pointer;
 }
 
 

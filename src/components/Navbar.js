@@ -1,69 +1,113 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../components/contexts/CartContext";
-import { useCurrency } from "./contexts/CurrencyContext"; // Import Currency Context
+import { useCurrency } from "./contexts/CurrencyContext";
+import productsData from "../assets/productsData";
 import logo from "../assets/Fugic logo.png";
 import { FaSearch, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const { cart } = useCart();
-  const { currency, toggleCurrency } = useCurrency(); // Get currency & toggle function from context
+  const { currency, toggleCurrency } = useCurrency();
   const location = useLocation();
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const totalItemsInCart = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  useEffect(() => {
+    if (!window.googleTranslateElementInit) {
+      window.googleTranslateElementInit = () => {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement(
+            { pageLanguage: "en" },
+            "google_translate_element"
+          );
+        }
+      };
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
+      const script = document.createElement("script");
+      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
+  const allProducts = Object.entries(productsData).flatMap(([category, products]) =>
+    products.map(product => ({ ...product, category }))
+  );
+
+  const filteredProducts = search
+    ? allProducts.filter(
+        (product) =>
+          product.chemicalName.toLowerCase().includes(search.toLowerCase()) ||
+          product.articleNo.toLowerCase().includes(search.toLowerCase()) ||
+          product.casNo.toLowerCase().includes(search.toLowerCase())
+      )
+    : [];
+
+  const handleProductSelect = (product) => {
+    setSearch("");
+    navigate(`/products/category/${product.category}?search=${product.articleNo}`);
   };
 
   return (
-    <div>
-      {/* Rolling Text */}
+    <div className="navbar-container">
       <div className="rolling-text-container">
         <div className="rolling-text">
           <p>Welcome to Fugic NEXT LEVEL CHEMISTRY - "MADE IN INDIA"</p>
         </div>
       </div>
 
-      {/* Main Navbar */}
       <nav className="navbar-main">
         <div className="navbar-left">
-          <img src={logo} alt="Logo" className="logo" />
-          <FaBars className="hamburger-icon" onClick={toggleMenu} />
+          <Link to="/">
+            <img src={logo} alt="Logo" className="logo" />
+          </Link>
+          <FaBars className="hamburger-icon" onClick={() => setMenuOpen(!menuOpen)} />
         </div>
+
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Search by Product name or CAS number.."
             value={search}
-            onChange={handleSearchChange}
+            onChange={(e) => setSearch(e.target.value)}
+            className="search-input"
           />
           <FaSearch className="search-icon" />
+          {search && (
+            <div className="search-results">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <div
+                    key={`${product.articleNo}-${product.category}`}
+                    className="search-result-item"
+                    onClick={() => handleProductSelect(product)}
+                  >
+                    {product.chemicalName} ({product.articleNo})
+                  </div>
+                ))
+              ) : (
+                <p className="no-results">No results found</p>
+              )}
+            </div>
+          )}
         </div>
+
         <div className="navbar-icons">
           <Link to="/cart" className="icon">
             <FaShoppingCart />
-            <span className="cart-item-count">
-              {totalItemsInCart > 0 ? totalItemsInCart : 0}
-            </span>
+            <span className="cart-item-count">{cart.reduce((acc, item) => acc + (item.quantity || 1), 0)}</span>
           </Link>
           <Link to="/request-quote" className="get-quote">Get Quote</Link>
-          
-          {/* Currency Toggle Button */}
           <button className="currency-toggle-btn" onClick={toggleCurrency}>
             {currency} / {currency === "INR" ? "USD" : "INR"}
           </button>
         </div>
       </nav>
 
-      {/* Navbar Menu - Hidden on Mobile */}
       <nav className="navbar-menu">
         <ul>
           <li><Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
@@ -73,15 +117,16 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      {/* Mobile Popup Menu */}
+      <div id="google_translate_element" style={{ margin: "10px auto", textAlign: "center" }}></div>
+
       {menuOpen && (
         <div className="menu-popup">
-          <FaTimes className="close-menu" onClick={toggleMenu} />
+          <FaTimes className="close-menu" onClick={() => setMenuOpen(false)} />
           <ul>
-            <li><Link to="/" onClick={toggleMenu} className={location.pathname === "/" ? "active" : ""}>Home</Link></li>
-            <li><Link to="/products" onClick={toggleMenu} className={location.pathname.startsWith("/products") ? "active" : ""}>Products</Link></li>
-            <li><Link to="/services" onClick={toggleMenu} className={location.pathname.startsWith("/services") ? "active" : ""}>Services</Link></li>
-            <li><Link to="/company-info" onClick={toggleMenu} className={location.pathname.startsWith("/company-info") ? "active" : ""}>Contact Us</Link></li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link></li>
+            <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+            <li><Link to="/company-info" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
           </ul>
         </div>
       )}

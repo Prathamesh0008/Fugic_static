@@ -1,11 +1,12 @@
 /* Floating button styles */
 .scroll-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 90px;
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #5db0e1; /* Your logo color */
+    background: linear-gradient(135deg, #5db0e1, #87c8f2, #5db0e1);
+/* Your logo color */
     color: white;
     border: none;
     border-radius: 50%;
@@ -31,4 +32,22 @@
     background-color: #3a8abf;
     transform: scale(1.1);
   }
-  
+  @media (max-width: 768px) {
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        bottom: 70px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        bottom: 80px;
+        right: 10px;
+    }
+}

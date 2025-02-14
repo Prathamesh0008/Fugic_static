@@ -2,6 +2,8 @@
 .banner-container {
   position: relative;
   width: 100%;
+  height: 85vh; /* Use viewport height for flexibility */
+  max-height: 1000px; /* Prevents it from getting too big on 4K screens */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -25,7 +27,8 @@
 .banner-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Prevents distortion */
+  object-fit: cover; /* Ensures image always fills the container */
+  display: block;
 }
 
 /* Arrows */
@@ -58,40 +61,44 @@
 }
 
 /* Responsive Adjustments */
+/* @media (max-width: 1800px) {
+  .banner-container {
+    height: 80vh;
+    max-height: 590px;
+  }
+} */
+@media (max-width: 1800px) {
+  .banner-container {
+    height: 80vh;
+    max-height: 690px;
+  }
+}
+
 @media (max-width: 1024px) {
   .banner-container {
-    height: 40vh; /* Taller for tablets */
-  }
-
-  .arrow-left,
-  .arrow-right {
-    font-size: 1.8rem;
-    padding: 8px;
+    height: 70vh;
+    max-height: 350px;
   }
 }
 
 @media (max-width: 768px) {
   .banner-container {
-    height: 35vh;
-  }
-
-  .arrow-left,
-  .arrow-right {
-    font-size: 1.5rem;
-    padding: 7px;
+    height: 60vh;
+    max-height: 500px;
+ 
   }
 }
 
 @media (max-width: 480px) {
   .banner-container {
-    height: 11vh;
-    margin-top: -17px;
+    height: 35vh;
+    max-height: 150px;
+    /* margin-top: -17px; */
+    margin-top: 0px;
   }
-  
   .arrow-left,
-  .arrow-right {
-    font-size: 1.2rem;
-    padding: 6px;
-  }
-  
+.arrow-right {
+font-size: 1rem;
+padding: 5px;
+}
 }

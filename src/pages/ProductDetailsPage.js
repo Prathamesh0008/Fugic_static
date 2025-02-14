@@ -176,7 +176,7 @@ const ProductDetailsPage = () => {
                 <th>Pack Size</th>
                 <th>Price (INR)</th>
                 <th>Price Request</th>
-                <th>Quantity</th>
+                {/* <th>Quantity</th> */}
                 <th>Action</th>
               </tr>
             </thead>
@@ -186,7 +186,7 @@ const ProductDetailsPage = () => {
                   <td>{item.packSize}</td>
                   <td>₹ {item.price}</td>
                   <td>{item.priceRequest}</td>
-                  <td>
+                  {/* <td>
                     <input
                       type="number"
                       value={quantity}
@@ -194,7 +194,7 @@ const ProductDetailsPage = () => {
                       onChange={handleQuantityChange}
                       className="quantity-input"
                     />
-                  </td>
+                  </td> */}
                   <td>
                     <button className="add-to-cart-button" onClick={handleAddToCart}>
                       Add to Cart

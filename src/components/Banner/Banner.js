@@ -7,6 +7,7 @@ import "./Banner.css"; // Assuming CSS is in the same directory
 import banner1 from "../../assets/icons/banner1.png";
 import banner2 from "../../assets/icons/banner2.png";
 import banner3 from "../../assets/icons/banner3.png";
+import banner4 from "../../assets/icons/banner4.png";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -14,7 +15,8 @@ const Banner = () => {
   const bannerItems = [
     { image: banner1, text: "Banner 1 Description" },
     { image: banner2, text: "Banner 2 Description" },
-    { image: banner3, text: "Banner 3 Description" }
+    { image: banner3, text: "Banner 3 Description" },
+    { image: banner4, text: "Banner 4 Description" }
   ];
 
   // Move to the next or previous slide

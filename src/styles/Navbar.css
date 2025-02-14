@@ -14,12 +14,12 @@
   align-items: center;
   text-align: center;
 }
+
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
-
 
 .rolling-text {
   display: inline-block;
@@ -55,15 +55,19 @@ html, body {
   gap: 15px;
 }
 
-/* Centering everything in responsive mode */
-.navbar-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+.navbar-left a {
+  text-decoration: none; /* Remove underline from Link */
 }
 
 .logo {
   height: 50px;
+  background: white;
+  display: block; /* Ensures full clickable area */
+}
+
+.logo:hover {
+  background: white;
+  text-decoration: none;
 }
 
 /* Search Bar */
@@ -80,6 +84,7 @@ html, body {
   border: 1px solid #ccc;
   border-radius: 20px;
   font-size: 16px;
+  outline: none;
 }
 
 .search-icon {
@@ -87,6 +92,44 @@ html, body {
   right: 10px;
   color: #555;
   cursor: pointer;
+}
+
+/* Search Results Dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+  display: block;
+  padding: 8px 12px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.search-result-item:hover {
+  background: #f0f0f0;
+  color: black;
+}
+
+.no-results {
+  padding: 8px 12px;
+  color: #888;
+  font-size: 14px;
 }
 
 /* Right side - Icons */
@@ -102,7 +145,8 @@ html, body {
   color: #333;
   text-decoration: none;
 }
-.icon:hover{
+
+.icon:hover {
   background: transparent;
   color: black;
 }
@@ -130,6 +174,22 @@ html, body {
 
 .get-quote:hover {
   background: #0b6ca3;
+}
+
+/* Currency Toggle Button */
+.currency-toggle-btn {
+  border: none;
+  background: #ff9800;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.currency-toggle-btn:hover {
+  background: #e68900;
 }
 
 /* Navbar Menu */
@@ -179,12 +239,10 @@ html, body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-
   z-index: 1000;
   border-radius: 10px;
   text-align: center;
 }
-
 
 .close-menu {
   font-size: 24px;
@@ -215,7 +273,6 @@ html, body {
 }
 
 @media (max-width: 768px) {
- 
   .navbar-main {
     flex-direction: column;
     align-items: center;
@@ -238,7 +295,7 @@ html, body {
   }
 
   .hamburger-icon {
-    /* display: block; */
+    display: block;
   }
 
   .navbar-icons {
@@ -250,6 +307,7 @@ html, body {
   .navbar-menu {
     display: none;
   }
+
   .navbar-main {
     flex-direction: column;
     align-items: center;
@@ -261,6 +319,10 @@ html, body {
     width: 100%;
     justify-content: center;
   }
+  .search-input{
+    font-size: 1px;
+  }
+ 
 
   .search-container {
     width: 90%;
@@ -274,4 +336,73 @@ html, body {
   .navbar-icons {
     justify-content: center;
   }
+}
+/* General styling for the Google Translate container */
+#google_translate_element {
+  position: fixed;
+  bottom: 70px;
+  left: 10px;
+  z-index: 1000;
+}
+
+
+
+
+/* Hide the default Google Translate logo */
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Hide "Powered by Google" text */
+.goog-te-gadget span {
+  display: none;
+}
+
+/* Style the dropdown button */
+.goog-te-gadget {
+  font-size: 14px !important;
+  font-family: Arial, sans-serif;
+  color: white !important;
+}
+
+/* Customize the select dropdown */
+.goog-te-combo {
+  padding: 6px 10px;
+  border-radius: 5px;
+  background-color: #0b6ca3;
+  border: 1px solid #ddd;
+  color: white ;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Adjust dropdown width */
+.goog-te-combo {
+  width: auto !important;
+}
+
+/* Optional: Remove unnecessary iframe borders
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Hide the top Google Translate frame */
+/* body {
+  top: 0px !important;
+} */ 
+
+/* Ensure dropdown doesn't overlap other elements */
+.goog-te-gadget-simple {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #5db0e1; /* Your logo color */
+  color: white !important;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+/* Hover effect */
+.goog-te-gadget-simple:hover {
+  background: #4293c6; /* Darker shade of your logo color */
 }

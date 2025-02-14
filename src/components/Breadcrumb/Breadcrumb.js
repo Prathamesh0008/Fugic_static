@@ -12,7 +12,8 @@ const Breadcrumb = ({ paths }) => {
             <Link to={path.link} className="breadcrumb-link">
               {path.name}
             </Link>
-            {index < paths.length - 1 && <span className="separator">⮞</span>}
+            {index < paths.length - 1 && <i className="fa fa-angle-right separator"><i className="fa fa-angle-right separator"></i></i>}
+
           </span>
         ))}
       </div>
