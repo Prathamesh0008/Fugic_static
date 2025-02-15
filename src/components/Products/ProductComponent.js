@@ -10,22 +10,22 @@ const products = [
   {
     name: 'Chemical',
     image: chemical,
-    link: '/products/chemical',
+    // link: '/products/chemical',
   },
   {
     name: 'Glassware',
     image: glassware,
-    link: '/products/glassware',
+    // link: '/products/glassware',
   },
   {
     name: 'Filter Paper',
     image: filterpaper,
-    link: '/products/FilterPaper',
+    // link: '/products/FilterPaper',
   },
   {
     name: 'Cleaning Solution',
     image: cleaning,
-    link: '/products/cleaning',
+    // link: '/products/cleaning',
   },
 ];
 
